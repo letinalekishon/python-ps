@@ -50,5 +50,19 @@ fetch_products()
 
 
 
+def fetch_data(table):
+    cur.excute(f"select * from{table} ;")
+    data = cur.fetchall()
+    return data
+    product = fetch_data('products')
 
+#insert product - method1 takjes values as parameters
+def insert_products(values):
+    insert ="insert into product(name,buying_price,selling_price,stock_quantity)values(%s,%s,%s)"
+    cur.execute(insert,values)
+    conn.commit()
+
+    product_values= ("apple",120,150,200)
+    insert_products(products_values1)
+    products
 
